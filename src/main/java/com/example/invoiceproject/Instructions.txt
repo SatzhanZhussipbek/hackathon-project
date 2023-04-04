@@ -1,0 +1,44 @@
+<h1> Invoices </h1>
+<ul> Types </ul>
+<li> Paid </li>
+<li> Pending </li>
+<li> Draft </li>
+<h2> What an invoice looks like </h2>
+<p> There is an invoice filter by status </p>
+<p> Id, date, full name, amount, type(Paid, ...) </p>
+<p> Id should be 2 random uppercase letters followed by 4 random numbers </p>
+<p> Default status is Draft </p>
+<p> The `total` should be the sum of all items on the invoice </p>
+
+Invoice: everything apart from item list -> Invoice table
+1) Id
+2) Due date
+3) Client name
+4) amount
+5) Status
+
+Bill from:
+1) Street address
+2) City
+3) Post code
+4) Country
+5) InvoiceDetails
+6) List<Item>
+
+Invoice details: ( class InvoiceDetails )
+Bill to:
+1) client's name
+2) client's email
+3) street address
+4) City
+5) Post code
+6) Country
+7) Invoice date created
+8) Payment terms *String
+9) Description
+
+Item list: ( class Item ) -> a separate table
+1) Item name
+2) quantity
+3) price
+4) total ( in reality subtotal )
