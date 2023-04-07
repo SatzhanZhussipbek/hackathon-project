@@ -2,10 +2,10 @@ package com.example.invoiceproject.entity;
 
 public enum InvoiceStatus {
 
-    DRAFT,
+    draft,
 
-    PAID,
+    paid,
 
-    PENDING
+    pending
 
 }

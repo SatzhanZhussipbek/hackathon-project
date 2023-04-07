@@ -1,9 +1,7 @@
 package com.example.invoiceproject.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.Date;
 
@@ -11,16 +9,19 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name="Invoice_item")
 public class InvoiceItem {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-
-    private String itemName;
-
+    @Column(name = "name")
+    private String name;
+    @Column(name = "quantity")
     private int quantity;
-
+    @Column(name = "price")
     private double price;
-
+    @Column(name = "total")
     private double total;
 
 }

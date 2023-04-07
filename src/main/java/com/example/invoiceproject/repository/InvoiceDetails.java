@@ -15,15 +15,15 @@ import java.util.Random;
 @AllArgsConstructor
 public class InvoiceDetails {
 
-    private String id = generateRandomChars();
+    private String id;
 
-    private Date dueDate;
+    private String dueDate;
 
     private String clientName;
 
     private double price;
 
-    private InvoiceStatus invoiceStatus;
+    private InvoiceStatus status;
 
 
     public static String generateRandomChars() {
