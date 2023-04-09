@@ -18,14 +18,14 @@ public class GeneralUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private long id;
     @Column(name = "name")
     private String name;
 
     @Column(name = "password")
     private String password;
-    @OneToMany
-    (cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Invoice> invoices = new ArrayList<>();
 
     public GeneralUser(String name, String password, List<Invoice> invoices) {

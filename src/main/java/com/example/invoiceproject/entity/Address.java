@@ -11,13 +11,15 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Embeddable
-public class SenderAddress {
+public class Address {
 
-    private String senderStreet;
+    private String street;
 
-    private String senderCity;
+    private String city;
 
-    private String senderPostCode;
+    private String postCode;
 
-    private String senderCountry;
+    private String country;
+
+
 }

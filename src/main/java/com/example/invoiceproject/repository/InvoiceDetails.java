@@ -1,5 +1,6 @@
 package com.example.invoiceproject.repository;
 
+import com.example.invoiceproject.entity.Invoice;
 import com.example.invoiceproject.entity.InvoiceStatus;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +14,7 @@ import java.util.Random;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class InvoiceDetails {
+public class InvoiceDetails extends Invoice {
 
     private String id;
 
@@ -23,7 +24,7 @@ public class InvoiceDetails {
 
     private double price;
 
-    private InvoiceStatus status;
+    private String status;
 
 
     public static String generateRandomChars() {

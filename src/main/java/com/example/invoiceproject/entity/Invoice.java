@@ -6,9 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.xml.transform.sax.SAXTransformerFactory;
-import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
@@ -20,10 +17,8 @@ import java.util.Random;
 @Table(name = "Invoice")
 public class Invoice {
     @Id
+    @Column(name = "id")
     private String id = generateRandomChars();
-    @Transient
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long invoiceId;
     @Column(name = "created_at")
     private String createdAt;
     @Column(name = "payment_due")
@@ -37,20 +32,17 @@ public class Invoice {
     @Column(name = "client_email")
     private String clientEmail;
     @Column(name = "status")
-    @Enumerated(EnumType.STRING)
-    private InvoiceStatus status;
+    private String status;
     @Column(name = "sender_address")
-    private SenderAddress senderAddress;
+    @Embedded
+    private Address senderAddress;
     @Column(name = "client_address")
+    @Embedded
     private ClientAddress clientAddress;
-    @OneToMany
+    @OneToMany(cascade=CascadeType.ALL)
     private List<InvoiceItem> items;
     @Column(name = "total")
     private double total;
-    @ManyToOne
-    @Transient
-    private GeneralUser user;
-
     public static String generateRandomChars() {
         String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String digits = "0123456789";

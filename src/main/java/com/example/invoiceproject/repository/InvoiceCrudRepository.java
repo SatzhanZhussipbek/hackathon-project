@@ -15,14 +15,11 @@ import java.util.UUID;
 public interface InvoiceCrudRepository extends CrudRepository<Invoice, String> {
     @Transactional
     @Modifying
-    @Query(value = "update Invoice i set i.status=?1 where i.id=?2",
-            nativeQuery = true)
-    void updateInvoiceStatus(InvoiceStatus status, long invoiceId);
+    @Query(value = "update Invoice i set i.status=?1 where i.id=?2")
+    void updateInvoiceStatus(String status, String Id);
 
-    @Query(value = "select Invoice i where i.id=?1", nativeQuery = true)
+    @Query(value = "select i from Invoice i where i.id=?1")
     Invoice getInvoiceById(String id);
 
-    @Query(value = "select Invoice i where i.invoiceId=?1", nativeQuery = true)
-    Invoice getInvoiceByInvoiceId(long invoiceId);
 
 }
