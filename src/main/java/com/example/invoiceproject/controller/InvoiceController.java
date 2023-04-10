@@ -1,11 +1,10 @@
 package com.example.invoiceproject.controller;
 
 import com.example.invoiceproject.entity.GeneralUser;
-import com.example.invoiceproject.entity.InvoiceStatus;
 import com.example.invoiceproject.entity.Invoice;
 import com.example.invoiceproject.exception.ErrorTemplate;
 import com.example.invoiceproject.repository.InvoiceCrudRepository;
-import com.example.invoiceproject.repository.InvoiceDetails;
+import com.example.invoiceproject.entity.InvoiceDetails;
 import com.example.invoiceproject.repository.UserCrudRepository;
 import com.example.invoiceproject.service.InvoiceService;
 import com.example.invoiceproject.service.InvoiceSortService;

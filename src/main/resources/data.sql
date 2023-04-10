@@ -30,4 +30,5 @@ Create table if not exists Invoice_item
     price DOUBLE NOT NULL,
     total DOUBLE NOT NULL,
     PRIMARY KEY(id)
-)
+);
+

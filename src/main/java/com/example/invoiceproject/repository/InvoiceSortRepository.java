@@ -1,8 +1,7 @@
 package com.example.invoiceproject.repository;
 
 import com.example.invoiceproject.entity.Invoice;
-import com.example.invoiceproject.entity.InvoiceStatus;
-import org.springframework.data.domain.Page;
+import com.example.invoiceproject.entity.InvoiceDetails;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -12,6 +11,9 @@ import java.util.List;
 
 @Repository
 public interface InvoiceSortRepository extends PagingAndSortingRepository<Invoice, Long> {
-        @Query(value = "select i from Invoice i where i.status=?1")
-        List<Invoice> findAllByStatus (String status, Pageable pageable);
+        @Query(value =
+                "SELECT new com.example.invoiceproject.entity.InvoiceDetails" +
+                        "(i.id, i.paymentDue, i.clientName, i.total, i.status) " +
+                "from Invoice i where i.status=:status")
+        List<InvoiceDetails> findAllByStatus (String status, Pageable pageable);
 }

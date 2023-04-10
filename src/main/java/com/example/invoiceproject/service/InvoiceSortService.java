@@ -2,8 +2,7 @@ package com.example.invoiceproject.service;
 
 import com.example.invoiceproject.entity.GeneralUser;
 import com.example.invoiceproject.entity.Invoice;
-import com.example.invoiceproject.entity.InvoiceStatus;
-import com.example.invoiceproject.repository.InvoiceDetails;
+import com.example.invoiceproject.entity.InvoiceDetails;
 import com.example.invoiceproject.repository.InvoiceSortRepository;
 import com.example.invoiceproject.repository.UserCrudRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -25,17 +24,17 @@ public class InvoiceSortService {
     UserCrudRepository userCrudRepository;
 
     public List<InvoiceDetails> filterInvoices (Long userId, String status, Pageable pageable) {
-        List<Invoice> invoices = invoiceSortRepository.findAllByStatus(status, pageable);
+        List<InvoiceDetails> invoices = invoiceSortRepository.findAllByStatus(status, pageable);
         GeneralUser user = userCrudRepository.findGeneralUserById(userId);
         List<InvoiceDetails> list = new ArrayList<>();
-        for (Invoice i: invoices) {
+        for (InvoiceDetails i: invoices) {
             for (Invoice inv: user.getInvoices()) {
                 if (Objects.equals(i.getId(), inv.getId())) {
                     InvoiceDetails invoiceDetails = new InvoiceDetails();
                     invoiceDetails.setId(i.getId());
-                    invoiceDetails.setDueDate(i.getPaymentDue());
+                    invoiceDetails.setDueDate(i.getDueDate());
                     invoiceDetails.setClientName(i.getClientName());
-                    invoiceDetails.setPrice(i.getTotal());
+                    invoiceDetails.setPrice(i.getPrice());
                     invoiceDetails.setStatus(i.getStatus());
                     list.add(invoiceDetails);
                 }

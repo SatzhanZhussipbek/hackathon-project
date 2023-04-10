@@ -1,0 +1,46 @@
+    
+    InvoiceController 
+
+    @GetMapping("/invoices")
+    public List<InvoiceDetails> getInvoices (@RequestParam String status, @RequestParam long userId, Pageable pageable) {
+        
+    }
+    @GetMapping("/invoices/{id}")
+    public Invoice getInvoice (@PathVariable String id, @RequestParam long userId, Authentication authentication) {
+        
+    }
+
+    @PostMapping("/invoices/create")
+    public ResponseEntity<Object> createInvoice(@RequestBody Invoice invoice, @RequestParam
+                                                long userId) {
+       
+    }
+    @PostMapping("/invoices/{id}/update")
+    public ResponseEntity<Object> updateInvoice(@PathVariable
+                                                String id, @RequestParam String status,
+                                                @RequestParam long userId) {
+        
+    }
+
+    @DeleteMapping("/invoices/{id}")
+    public ResponseEntity<Object> deleteInvoice(@PathVariable String id, @RequestParam long userId) {
+        
+    }
+
+    UserController
+
+     @PostMapping("/authenticate")
+    public ResponseEntity<?> authenticateData (@RequestBody JwtRequest jwtRequest) throws Exception {
+        
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody JwtRequest jwtRequest) {
+        
+    }
+
+    public class JwtRequest {
+ 
+        private String username;
+
+        private String password; }

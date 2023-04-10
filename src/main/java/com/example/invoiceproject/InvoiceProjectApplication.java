@@ -17,7 +17,7 @@ import java.util.random.RandomGeneratorFactory;
 
 @SpringBootApplication
 @EnableJpaRepositories
-@EntityScan
+@EntityScan("com.example.invoiceproject.entity")
 @SecurityScheme(name = "basicauth", scheme = "bearer", type = SecuritySchemeType.HTTP, in = SecuritySchemeIn.HEADER, bearerFormat = "JWT")
 public class InvoiceProjectApplication {
 

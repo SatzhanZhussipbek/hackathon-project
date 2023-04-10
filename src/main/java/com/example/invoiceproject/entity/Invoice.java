@@ -1,6 +1,5 @@
 package com.example.invoiceproject.entity;
 
-import com.example.invoiceproject.repository.InvoiceDetails;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,6 +42,7 @@ public class Invoice {
     private List<InvoiceItem> items;
     @Column(name = "total")
     private double total;
+
     public static String generateRandomChars() {
         String letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String digits = "0123456789";
